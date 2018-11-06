@@ -1,4 +1,4 @@
-ackage main.java.ressources;
+package main.java.ressources;
 
 public class Game {
     private int rolls[]=new int[21];
@@ -11,10 +11,15 @@ public class Game {
 
     public int score() {
         int score=0;
-        for(int i=0;i<rolls.length;i++){
-            score+=rolls[i];
+        int i = 0;
+        for (int frame = 0; frame < 10; frame++)  {
+            int scoreByFrame=rolls[i] + rolls[i+1];
+            if(scoreByFrame==10) { // spare case
+                score += rolls[i+2];
+            }
+            score += scoreByFrame;
+            i += 2;
         }
         return score;
     }
-
 }
