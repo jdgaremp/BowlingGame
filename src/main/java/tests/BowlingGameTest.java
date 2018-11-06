@@ -15,31 +15,42 @@ public class BowlingGameTest extends TestCase {
     }
 
     public void testGutterGame() throws Exception {
+        int finalScoreExpected = 0;
+
         rollMany(20,0);
-        assertEquals(0, g.score());
+
+        assertEquals(finalScoreExpected, g.score());
     }
 
     public void testAllOnes() throws Exception {
+        int finalScoreExpected = 20;
+
         rollMany(20,1);
-        assertEquals(20, g.score());
+
+        assertEquals(finalScoreExpected,g.score());
     }
 
     public void testOneSpare() throws Exception {
+        int finalScoreExpected = 16;
+
         g.roll(5);
         g.roll(5); // spare
         g.roll(3);
         rollMany(17,0);
-        assertEquals(16,g.score());
+
+        assertEquals(finalScoreExpected,g.score());
     }
 
     public void testOneStrike() throws Exception {
+        int finalScoreExpected=26;
+
         g.roll(10); // strike
         g.roll(5);
         g.roll(3);
         rollMany(17,0);
-        assertEquals(26,g.score());
-    }
 
+        assertEquals(finalScoreExpected,g.score());
+    }
 
 
 }
