@@ -14,12 +14,23 @@ public class Game {
         int i = 0;
         for (int frame = 0; frame < 10; frame++)  {
             int scoreByFrame=rolls[i] + rolls[i+1];
-            if(scoreByFrame==10) { // spare case
+            if(isSpareOrStrike(scoreByFrame)) { // spare case
                 score += rolls[i+2];
+            }
+            if(isSpareOrStrike(rolls[i])) { // strike case
+                score += rolls[i+1] + rolls[i+2];
             }
             score += scoreByFrame;
             i += 2;
         }
         return score;
+    }
+
+    private boolean isSpareOrStrike(int scoreByFrameOrRoll) {
+        if(scoreByFrameOrRoll==10) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }
