@@ -18,4 +18,10 @@ public class BowlingGameTest extends TestCase {
         rollMany(20,0);
         assertEquals(0, g.score());
     }
+
+    public void testAllOnes() throws Exception {
+        rollMany(20,1);
+        assertEquals(20, g.score());
+    }
+
 }
